@@ -39,8 +39,8 @@ export SAN=$SAN_NODE2
 ./gen_client_node_cert.sh kibana $CA_PASS capass
 
 # convert to pkcs8
+openssl pkcs8 -passin pass:$CA_PASS -passout pass:$CA_PASS -in logstash.key.pem -topk8 -out logstash.key
 openssl pkcs8 -passin pass:$CA_PASS -passout pass:$CA_PASS -in filebeat.key.pem -topk8 -out filebeat.key
-openssl pkcs8 -passin pass:$CA_PASS -passout pass:$CA_PASS -in filebeat.key.pem -topk8 -out filebeat.key
-openssl pkcs8 -passin pass:$CA_PASS -passout pass:$CA_PASS -in filebeat.key.pem -topk8 -out filebeat.key
+openssl pkcs8 -passin pass:$CA_PASS -passout pass:$CA_PASS -in kibana.key.pem -topk8 -out kibana.key
 
 rm -rf *.sh etc
